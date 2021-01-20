@@ -21,4 +21,4 @@ Github repo for the Robotonus mine detector robot.
 
 
 big mine, oh no!
-![alt text](https://amayei.nyc3.digitaloceanspaces.com/2019/11/landmine8219381239.jpeg)
+![alt text](https://img.wonderhowto.com/img/69/16/63628738331490/0/glowing-bacteria-can-help-locate-devastating-hidden-land-mines.w1456.jpg)

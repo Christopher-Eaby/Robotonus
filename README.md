@@ -4,4 +4,21 @@
 
 Github repo for the Robotonus mine detector robot.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+big mine, oh no!
 ![alt text](https://amayei.nyc3.digitaloceanspaces.com/2019/11/landmine8219381239.jpeg)

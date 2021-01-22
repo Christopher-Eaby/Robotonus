@@ -44,8 +44,19 @@ for index, row in data.iterrows():
     lat = row['Lat']
     lon = row['Lon']
     detonated = row['Detonated']
-    fgv = folium.FeatureGroup(name = "Mine " + str(count) + " at " + lat + " lat and "+ lon + " lon")
-    fgv.add_child(folium.CircleMarker(location = (lat, lon), radius = size, fill_opacity = 0.7, popup = "Mine: \nLatitude: "+ str(lat) + " \nLongitude: "+ str(lon) + "\nDetonated: " + str(detonated), fill_color = 'red', color = 'black'))
+    
+    if detonated == True:
+        colo = 'green'
+        detona = '(Not Live)'
+    elif detonated == False:
+        colo = 'red'
+        detona = '(Live)'
+    else:
+        colo = 'orange'
+        detona = '(Unknown)'
+    
+    fgv = folium.FeatureGroup(name = detona + " Mine " + str(count) + "\n at " + lat + " lat and "+ lon + " lon")
+    fgv.add_child(folium.CircleMarker(location = (lat, lon), radius = size, fill_opacity = 0.7, popup = "Mine "+ str(count) + " : \nLatitude: "+ str(lat) + " \nLongitude: "+ str(lon) + "\nDetonated: " + str(detonated), fill_color = colo, color = 'black'))
     map1.add_child(fgv)
     count += 1
     

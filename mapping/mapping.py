@@ -12,7 +12,6 @@ Contact :
 """
 
 import folium
-import webbrowser
 import pandas as pd
 import pymongo
 
@@ -52,5 +51,3 @@ for index, row in data.iterrows():
     
 map1.add_child(folium.LayerControl())
 map1.save("mines.html") 
-new = 2
-webbrowser.open('mines.html', new = new)

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Control Panel</title>
+    <style>
+        body {
+            background-color:black; 
+        }  
+        .flex-container1 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            flex-direction: column;
+            align-content: space-between;
+        }
+
+        .flex-container2 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            flex-direction: row;
+            align-content: space-between;
+        }
+
+    </style>
+</head>
+
+
+<body>
+    <h2 style="color: yellow; size: 1000px;"><center>Control Panel</center></h2>
+    <div class="flex-container1">
+        <div><button type="button" id="state" onclick="forward()" style="background-color:grey;">Forward</button></div>
+        <div><button type="button" id="state" onclick="reverse()" style="background-color:grey;">Reverse</button></div>
+    </div>
+    <div class="flex-container2">
+        <button type="button" id="state" onclick="right()" style="background-color:grey;">Right</button>
+        <button type="button" id="state" onclick="left()" style="background-color:grey;">Left</button>
+    <div class="flex-container">
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script>
+        var socket = io.connect(); //load socket.io-client and connect to the host
+        function forward() {
+            socket.emit("state", 1); //send button state to server
+        }
+
+        function reverse() {
+            socket.emit("state", 1); //send button state to server
+        }
+
+        function right() {
+            socket.emit("state", 1); //send button state to server
+        }
+
+        function left() {
+            socket.emit("state", 1); //send button state to server
+        }
+    </script>
+
+</html>
+</body>
+
+</html>

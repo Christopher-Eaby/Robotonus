@@ -16,8 +16,6 @@ import pandas as pd
 import pymongo
 import http.server
 import socketserver
-import webbrowser
-
 
 #creates mongodatabase and the collections
 myclient = pymongo.MongoClient("mongodb+srv://Arthur:102030_art@landminecluster.ia7dg.mongodb.net/test")
@@ -67,8 +65,6 @@ for index, row in data.iterrows():
 map1.add_child(folium.LayerControl())
 map1.save("mines.html") 
 
-webbrowser.open('mines.html', new = 2)
-
 class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/':
@@ -83,3 +79,5 @@ my_server = socketserver.TCPServer(("", PORT), handler_object)
 
 # Star the server
 my_server.serve_forever()
+
+

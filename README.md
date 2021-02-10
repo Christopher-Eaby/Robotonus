@@ -5,8 +5,6 @@
 Robotonus mine detector robot.
 --------------------------------------------------
 \
-\
-\
 The robotonus mine detecting robot is a project we're working on, the robot will be able to be controlled via an android app that consists of controls and a live camera feed that is mounted on top of the robot. The robot will detect land mines and add them to our database. The app will then be able to view those mines on a mapping system we have designed. The removal team can then use the map to find where the mines are and remove them.
 \
 \

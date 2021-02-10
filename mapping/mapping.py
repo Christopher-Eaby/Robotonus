@@ -67,6 +67,8 @@ for index, row in data.iterrows():
 map1.add_child(folium.LayerControl())
 map1.save("mines.html") 
 
+webbrowser.open('mines.html', new = 2)
+
 class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/':

@@ -76,7 +76,7 @@ class ThirdRoute extends StatelessWidget {
         Container(
           height: 250,
           child: WebView(
-            initialUrl: "https://www.youtube.com/watch?v=D4wF0snbC00&ab_channel=PBSNewsHour",
+            initialUrl: "https://www.youtube.com/watch?v=wKw6WIKWXdw&ab_channel=MilesPerHr",
             javascriptMode: JavascriptMode.unrestricted,
             onWebViewCreated: (WebViewController webViewController) {
               _controller.complete(webViewController);
@@ -142,93 +142,3 @@ class ThirdRoute extends StatelessWidget {
     );
   }
 }
-
-// AlertDialog test = AlertDialog(
-// title: Text('Mine Detected!'),
-// content: Text(
-// 'Either accept or log a new mine in the database. NB: DB functionality not yet active'),
-// actions: [
-//   FlatButton(
-//     child: Text('Accept'),
-//   ),
-//   FlatButton(
-//     child: Text('Log new Mine'),
-//   ),
-// ],
-// );
-//
-// showDialog(
-// context: context,
-// builder: (BuildContext context) {
-// return test;
-// },
-// );
-// }
-// AlertDialog test = AlertDialog(
-// title: Text('Mine Detected!'),
-// content: Text(
-// 'Either accept or log a new mine in the database. NB: DB functionality not yet active'),
-// actions: [
-//   FlatButton(
-//     child: Text('Accept'),
-//   ),
-//   FlatButton(
-//     child: Text('Log new Mine'),
-//   ),
-// ],
-// );
-//
-// showDialog(
-// context: context,
-// builder: (BuildContext context) {
-// return test;
-// },
-// );
-// }// import 'package:flutter/material.dart';
-//
-// void main() => runApp(new MyApp());
-//
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return new MaterialApp(
-//       home: Scaffold(
-//         appBar: AppBar(
-//           title: Text('Robotonus Controller'),
-//         ),
-//         body: Column(children: <Widget>[
-//           IconButton(
-//             onPressed: () {
-//               print('forward');
-//             },
-//             icon: Icon(Icons.arrow_circle_up),
-//             iconSize: 150,
-//           ),
-//           Row(children: <Widget>[
-//             IconButton(
-//               onPressed: () {
-//                 print('left');
-//               },
-//               icon: Icon(Icons.arrow_back),
-//               iconSize: 150,
-//             ),
-//             IconButton(
-//               onPressed: () {
-//                 print('right');
-//               },
-//               icon: Icon(Icons.arrow_forward),
-//               iconSize: 150,
-//             ),
-//           ]),
-//           IconButton(
-//             onPressed: () {
-//               print('backwards');
-//             },
-//             icon: Icon(Icons.arrow_circle_down),
-//             iconSize: 150,
-//           ),
-//         ]),
-//       ),
-//     );
-//   }
-// }

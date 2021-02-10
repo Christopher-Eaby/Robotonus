@@ -5,16 +5,30 @@
     <style>
         body {
             background-color:black; 
+            background-image: URL("./images/Background.jpg"); 
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: top;
+            background-attachment: fixed;
+            position: relative;
         }  
-        .flex-container1 {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-            flex-direction: column;
-            align-content: space-between;
+
+        h1 {
+            font: bold;
+            font-size: 2cm;
+            color: chartreuse;
         }
 
-        .flex-container2 {
+        .title{
+            background-image: URL("./images/camo_background.jpeg");  
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            width: fit-content;
+            height: fit-content;  
+        }
+
+        .y-axis {
             display: flex;
             flex-wrap: wrap;
             justify-content: flex-end;
@@ -22,39 +36,111 @@
             align-content: space-between;
         }
 
+        .x-axis {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            flex-direction: row;
+            align-content: space-between;
+        }
+
+        .warning-alarm {
+            display: flex;
+            position: relative;
+            margin-left: auto;
+            margin-right: 0px;
+            padding: 0.5cm;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: animation1;
+            animation-duration: 1s;
+            animation-play-state: running;
+            animation-iteration-count: infinite;
+            border-radius: 50px;
+        }
+
+        .button{
+            background-color:grey; 
+            width: 4cm; 
+            height: 4cm;
+            border-radius: 30px 0px 0px 0px;
+        }
+
+        .left {
+            border-radius: 0px 0px 0px 30px;
+        }
+        
+        .right {
+            border-radius: 0px 0px 30px 0px;
+        }
+
+        .reverse {
+            border-radius: 0px 30px 0px 0px;
+        }
+
+        .forward {
+            border-radius: 30px 0px 0px 0px;
+        }
+
+        @keyframes animation1 {
+            from {background-color: darkred;}
+            to {background-color: red;}
+        }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+    </script>
 </head>
 
 
 <body>
-    <h2 style="color: yellow; size: 1000px;"><center>Control Panel</center></h2>
-    <div class="flex-container1">
-        <div><button type="button" id="state" onclick="forward()" style="background-color:grey;">Forward</button></div>
-        <div><button type="button" id="state" onclick="reverse()" style="background-color:grey;">Reverse</button></div>
+    <div class="title"><h1>Control Panel</h1></div>
+    <embed src="">
+    <div class="y-axis">
+        <div><button type="button" class="button forward" id="forward" onclick="forward()">Forward</button></div>
+        <div><button type="button" class="button reverse" id="back" onclick="reverse()">Reverse</button></div>
     </div>
-    <div class="flex-container2">
-        <button type="button" id="state" onclick="right()" style="background-color:grey;">Right</button>
-        <button type="button" id="state" onclick="left()" style="background-color:grey;">Left</button>
-    <div class="flex-container">
-   
+    <div class="x-axis">
+        <button type="button" class="button left" id="left" onclick="left()">Left</button>
+        <button type="button" class="button right" id="right" onclick="right()">Right</button>
+    </div>>
+    <div class="warning-alarm">
+    </div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
-    <script>
-        var socket = io.connect(); //load socket.io-client and connect to the host
+    <script> 
+        var express = require('express');
+        var app = express();
+        const {spawn} = require('child_process')
+        var dir
         function forward() {
-            socket.emit("state", 1); //send button state to server
+            const childPython = spawn('python', ['forward.py']);
+            var dir="forward.py"
         }
 
         function reverse() {
-            socket.emit("state", 1); //send button state to server
+            const childPython = spawn('python', ['backward.py']);
         }
 
         function right() {
-            socket.emit("state", 1); //send button state to server
+            const childPython = spawn('python', ['right.py']);
         }
 
         function left() {
-            socket.emit("state", 1); //send button state to server
+            const childPython = spawn('python', ['left.py']);
         }
+
+        childPython.stdout.on('data', (data) => {
+             console.log('stdout: ${data}');
+         });
+
+        childPython.stderr.on('data', (data) => {
+             console.log('stderr: ${data}');
+        });
+
+        childPython.stdout.on('close', (data) => {
+             console.log('child process exited with code ${data}');
+        });
     </script>
 
 </html>

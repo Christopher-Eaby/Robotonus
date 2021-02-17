@@ -16,8 +16,6 @@ import pandas as pd
 import pymongo
 import http.server
 import socketserver
-import time
-import sys
 
 #creates mongodatabase and the collections
 myclient = pymongo.MongoClient("mongodb+srv://Arthur:102030_art@landminecluster.ia7dg.mongodb.net/test")

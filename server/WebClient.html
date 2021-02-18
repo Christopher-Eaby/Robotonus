@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Control Panel</title>
+    <style>
+        body {
+            display: flex;
+            background-color:black; 
+            background-image: URL("https://c.wallhere.com/photos/6e/93/grid_circles_background_metal_dark-701825.jpg!d"); 
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: top;
+            background-attachment: fixed;
+            position: relative;
+            flex-direction: column;
+        }  
+
+        .title {
+            flex-direction: row;
+            justify-content: center;
+            background-image: URL("https://th.bing.com/th/id/Rbcbb715522502113427b6578fb8f5bf3?rik=ilZXl%2b5ewCSwEQ&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f8%2f5%2f6%2f300291.jpg&ehk=NEQCoEq60lxcQZpV%2bfdI8mdbyO2GHtmVui%2betAx%2fW6Y%3d&risl=&pid=ImgRaw");  
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            height: fit-content;  
+            border: 10px solid blue;
+            border-style: groove;  
+        }
+
+        h1 {
+            font: bold;
+            font-size: 1.2cm;
+            color: chartreuse;
+            font-family: Impact;
+            text-align-last: center;
+        }
+
+        h1:hover {
+            -ms-transform: skewY(1deg); /* IE 9 */
+            transform: skewY(1deg);
+        }
+
+        .control_items {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            align-content: space-between;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-content: space-between;
+            padding-top: 1cm;
+        }
+
+        .controls {
+            padding-left: 3cm;
+        }
+
+        .y-axis {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            flex-direction: row;
+            align-content: space-between;
+            top: 10%;
+        }
+
+        .x-axis {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            flex-direction: row;
+            align-content: space-between;
+        }
+
+        .warning-alarm {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-left: auto;
+            margin-right: 0px;
+            padding: 0.5cm;
+            width: 400px;
+            height: 100px;
+            background-color: red;
+            animation-name: animation1;
+            animation-duration: 1s;
+            animation-play-state: running;
+            animation-iteration-count: infinite;
+            border-radius: 50px;
+        }
+
+        .button{
+            background-color:grey; 
+            width: 4cm; 
+            height: 4cm;
+            border-radius: 30px 0px 0px 0px;
+        }
+
+        .left {
+            border-radius: 0px 0px 0px 30px;
+        }
+
+        .left:hover {
+             font-weight: bold;
+             color:blue;
+             font-size: 50%;
+             opacity: 0.8;
+        }
+        
+        .right {
+            border-radius: 0px 0px 30px 0px;
+        }
+
+        .right:hover {
+             font-weight: bold;
+             color:blue;
+             font-size: 50%;
+             opacity: 0.8;
+        }
+
+        .reverse {
+            border-radius: 0px 30px 0px 0px;
+        }
+
+        .reverse:hover {
+             font-weight: bold;
+             color:blue;
+             font-size: 50%;
+             opacity: 0.8;
+        }
+
+        .forward {
+            border-radius: 30px 0px 0px 0px;
+        }
+
+        .forward:hover {
+             font-weight: bold;
+             color:blue;
+             font-size: 50%;
+             opacity: 0.8;
+        }
+
+        .camera_view {
+            display: flex;
+            background-color: black;
+            background-image: url();
+            height: 15cm;
+            width: 20cm;
+            flex-direction: column;
+            justify-content: baseline;
+            border: 5px solid grey;    
+            border-radius: 10px 10px 10px 10px;
+            padding-left: 0.1%;
+        }
+
+        video {
+            object-fit: fill;
+        }
+
+        @keyframes animation1 {
+            from {background-color: darkred;}
+            to {background-color: red;}
+        }
+    </style>
+    <script src=""></script>
+</head>
+<body>
+     <div ng-app="Control_Panel" ng-controller="ourCtrl">
+         <div class="title"><h1>CONTROL PANEL</h1></div>
+         <div class="control_items">
+             <div class="camera_view">
+                 <iframe src="https://youtu.be/5mGuCdlCcNM"></iframe>
+             </div>
+             <div class="controls">
+                 <div class="y-axis">
+                     <div><button type="button" class="button forward" id="forward" onclick="forward()" ng-click="count = moveFunction()">Forward</button></div>
+                     <div><button type="button" class="button reverse" id="back" onclick="reverse()" ng-click="count = moveFunction()">Reverse</button></div>
+                 </div>
+                 <div class="x-axis">
+                     <button type="button" class="button left" id="left" onclick="left()" ng-click="count = moveFunction()">Left</button>
+                     <button type="button" class="button right" id="right" onclick="right()" ng-click="count = moveFunction()">Right</button>
+                 </div>
+             </div>
+         </div>
+         <p>{{ count }}</p>
+         <div class="warning-alarm">
+         </div>
+     </div>
+     <script>
+        var app = angular.module('Contrtol_Panel', []);
+        app.controller('ourCtrl', function($scope) {
+             $scope.count=0;
+        });
+     </script>
+</body>
+</html>
+
+
